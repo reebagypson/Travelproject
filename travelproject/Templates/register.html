@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <style>
+        .loginform{
+                padding:10px;
+                border:1px solid pink;
+                border-radius:10px;
+                float:center;
+                margin-top:10px;
+             }
+    .formheading{
+    background-color:red;
+    color:white;
+    padding:4px;
+    text-align:center;
+    }
+    .sub{
+    background-color:#00ff80;
+    padding: 7px 40px 7px 40px;
+    color:white;
+    font-weight:bold;
+    margin-left:800px;
+    border-radius:5px;
+    float:center;
+    }
+    .submit{
+    background-color:white;
+    color:red;
+    padding: 7px 40px 7px 40px;
+    font-weight:bold;
+    margin-left:850px;
+    border-radius:5px;
+    float:center;
+    }
+    </style>
+</head>
+<body>
+<div>
+    <img src ="/static/images/contact.jpg">
+</div>
+<div class="loginform">
+
+     <h1 class="formheading"> Registration Form</h1>
+
+<form action="register" method="post">
+    {% csrf_token %}
+    <input class="sub" type="text" name="username" placeholder="enter your user name"><br>
+    <input class="sub" type="text" name="first_name" placeholder="enter your first name"><br>
+    <input class="sub" type="text" name="last_name" placeholder="enter your last name"><br>
+    <input class="sub" type="email" name="email" placeholder="enter your mail id"><br>
+    <input class="sub" type="password" name="pass1" placeholder="enter your password"><br>
+    <input class="sub" type="password" name="pass2" placeholder="confirm password"><br><br>
+    <input class="submit" type="submit">
+</div>
+</form>
+
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</body>
+</html>
